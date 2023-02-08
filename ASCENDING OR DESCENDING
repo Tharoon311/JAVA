@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class SortNames {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the list of names separated by a comma: ");
+        String namesInput = scan.nextLine();
+        String[] names = namesInput.split(",");
+
+        System.out.println("Sort in (A)scending or (D)escending order?");
+        String order = scan.nextLine();
+        
+        if (order.equalsIgnoreCase("A")) {
+            Arrays.sort(names);
+        } else if (order.equalsIgnoreCase("D")) {
+            Arrays.sort(names, (a, b) -> b.compareTo(a));
+        } else {
+            System.out.println("Invalid choice.");
+            return;
+        }
+        
+        System.out.println("Sorted names: " + String.join(", ", names));
+    }
+}
