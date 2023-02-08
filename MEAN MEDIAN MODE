@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5, 6, 6};
+
+        double mean = findMean(numbers);
+        System.out.println("Mean: " + mean);
+
+        double median = findMedian(numbers);
+        System.out.println("Median: " + median);
+
+        int mode = findMode(numbers);
+        System.out.println("Mode: " + mode);
+    }
+
+    private static double findMean(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return (double) sum / numbers.length;
+    }
+
+    private static double findMedian(int[] numbers) {
+        Arrays.sort(numbers);
+        if (numbers.length % 2 == 0) {
+            return (double) (numbers[numbers.length / 2] + numbers[numbers.length / 2 - 1]) / 2;
+        } else {
+            return (double) numbers[numbers.length / 2];
+        }
+    }
+
+    private static int findMode(int[] numbers) {
+        HashMap<Integer, Integer> frequency = new HashMap<>();
+        int maxValue = 0;
+        int mode = -1;
+        for (int i = 0; i < numbers.length; i++) {
+            if (frequency.containsKey(numbers[i])) {
+                frequency.put(numbers[i], frequency.get(numbers[i]) + 1);
+            } else {
+                frequency.put(numbers[i], 1);
+            }
+            if (frequency.get(numbers[i]) > maxValue) {
+                maxValue = frequency.get(numbers[i]);
+                mode = numbers[i];
+            }
+        }
+        return mode;
+    }
+}
