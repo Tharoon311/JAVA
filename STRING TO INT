@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class StringToInt {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter a string: ");
+    String str = input.nextLine();
+    try {
+      int num = Integer.parseInt(str);
+      System.out.println("The integer value is: " + num);
+    } catch (NumberFormatException e) {
+      System.out.println("Invalid string input. Cannot be converted to integer.");
+    }
+  }
+}
