@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class UserNameValidation {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter a user name: ");
+    String username = input.nextLine();
+
+    if (username.matches("^[a-zA-Z0-9]+$")) {
+      System.out.println("Valid user name");
+    } else {
+      System.out.println("Invalid user name");
+    }
+  }
+}
