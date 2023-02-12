@@ -1,0 +1,28 @@
+import java.util.*;
+class interest
+{
+public static void main(String args[])
+{
+int p,year,age,intr;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the principal amount:");
+p=sc.nextInt();
+System.out.println("Enter the number of years:");
+year=sc.nextInt();
+System.out.println("enter the age:");
+age=sc.nextInt();
+if(age>60)
+{
+int rate=12;	
+intr=p*year*rate/100;
+System.out.println("the interest is:"+intr);
+}
+else
+{
+int rate=10;
+intr=p*year*rate/100;
+System.out.println("the interest is:"+intr);
+}
+}
+}
+
