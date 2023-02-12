@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class LCM_GCD {
+  public static int gcd(int a, int b) {
+    while (b > 0) {
+      int temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+  }
+
+  public static int lcm(int a, int b) {
+    return a * (b / gcd(a, b));
+  }
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter the number of integers: ");
+    int n = input.nextInt();
+
+    int[] numbers = new int[n];
+    System.out.print("Enter the integers: ");
+    for (int i = 0; i < n; i++) {
+      numbers[i] = input.nextInt();
+    }
+    input.close();
+
+    int gcd = numbers[0];
+    for (int i = 1; i < n; i++) {
+      gcd = gcd(gcd, numbers[i]);
+    }
+    System.out.println("GCD of the numbers: " + gcd);
+
+    int lcm = numbers[0];
+    for (int i = 1; i < n; i++) {
+      lcm = lcm(lcm, numbers[i]);
+    }
+    System.out.println("LCM of the numbers: " + lcm);
+  }
+}
